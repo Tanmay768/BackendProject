@@ -1,69 +1,64 @@
 package com.niit.ToysStoreBackendProject;
 
 
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.Config.DBConfig;
-import com.niit.DAO.ProductDAO;
-import com.niit.DAO.SupplierDAO;
-import com.niit.model.Product;
-import com.niit.model.Supplier;
+import com.niit.DAO.UserDAO;
+import com.niit.model.User;
+
 
 public class TestDemo {
-	public static void main(String []arg)
-	{
+	public static void main(String[] arg) {
+
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DBConfig.class);
+
+		UserDAO userDAO = (UserDAO) context.getBean("userDAO");
 		
-	
-	AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(DBConfig.class);
-	
+		User u=new User();
+		u.setUserName("asdfg");
+		u.setEmailID("asdfg@gmail.com");
+		u.setGender("male");
+		u.setMobileNO(36598529);
+		u.setPassword("asdfgh");
+		u.setUserAddress("Bangalore");
+		userDAO.addUser(u);
+		
+		
+	/*	CategoryDAO categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
 
-	/*CategoryDAO categoryDAO=(CategoryDAO)context.getBean("category");
-	
-	Category category=new Category();
-	category.setCategoryName("Toys");
-	category.setCategoryDesc("Cars");
-	
-	categoryDAO.addCategory(category);
-	*/
+		Category category = new Category();
+		category.setCategoryName("Toys");
+		category.setCategoryDesc("Balls");
 
-	ProductDAO productDAO=(ProductDAO)context.getBean("product");
-	
-	Product product=new Product();
-	product.setProductName("Bat");
-	product.setProductDesc("CrickettBat");
-	product.setProductPrice(1200);
-	product.setProductInStock(35);
-	
-	productDAO.addProduct(product);
+		categoryDAO.addCategory(category);*/
 
+		/*ProductDAO productDAO = (ProductDAO) context.getBean("productDAO");
 
-	/*UserDAO userDAO=(UserDAO)context.getBean("user");
-	
-	User user=new User();
-	
-	user.setUserName("abcd");
-	user.setPassword("abcd");
-	user.setMobileNO(123456789);
-	user.setUserAddress("Bangalore");
-	
-	
-	
-	userDAO.addUser(user);*/
-	
-	/*SupplierDAO supplierDAO=(SupplierDAO)context.getBean("supplier");
-	Supplier supplier=new Supplier();
-	
-	supplier.setSupplierName("asdfgh");
-	supplier.setSupplierMobileNO(12354689);
-	supplier.setSupplierAddress("Bangalore");
+		Product product = new Product();
+		product.setProductName("Bat");
+		product.setProductDesc("CrickettBat");
+		product.setProductPrice(1200);
+		product.setProductInStock(35);
 
-	supplierDAO.addSupplier(supplier);
+		productDAO.addProduct(product);*/
 
-	
-*/
-	
-     
-	
+		/*UserDAO userDAO = (UserDAO) context.getBean("userDAO");
+
+		User uu=userDAO.getUser(4);
+
+		uu.setUserName("shahrukh");
+		userDAO.updateUser(uu);
+		userDAO.deleteUser(4);*/
+
+		/*SupplierDAO supplierDAO = (SupplierDAO) context.getBean("supplierDAO");
+		Supplier supplier = new Supplier();
+
+		supplier.setSupplierName("asdfgh");
+		supplier.setSupplierMobileNO(12354689);
+		supplier.setSupplierAddress("Bangalore");
+
+		supplierDAO.addSupplier(supplier);*/
+
 	}
-	}
+}

@@ -8,29 +8,23 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.niit.DAO.CategoryDAO;
 
-
 public class CategoryUnitTest {
-
-
 
 	static CategoryDAO categoryDAO;
 
 	@BeforeClass
-	public static void executeFirst()
-	{
-		AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext();
+	public static void executeFirst() {
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
 		context.scan("com.niit");
 		context.refresh();
-		
-		categoryDAO=(CategoryDAO)context.getBean("categoryDAO");
+
+		categoryDAO = (CategoryDAO) context.getBean("categoryDAO");
 	}
-	
+
 	@Test
-	public void addCategoryTest()
-	{
-		assertTrue("Problem",true);
+	public void addCategoryTest() {
+		assertTrue("Problem", true);
+
 	}
 
 }
-
-

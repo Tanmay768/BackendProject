@@ -5,10 +5,10 @@ import com.niit.model.User;
 
 
 public interface UserDAO {
-		public void addUser (User  ua);
-		public void deleteUser  (int uid);	
-		public void updateUser  (User  uu);	
-		public void getUser  (User  ug);	
+		public void addUser (User  user);
+		public void deleteUser  (int UserID);	
+		public void updateUser  (User  user);	
+		public User getUser  (int  UserID);	
 
 		
 

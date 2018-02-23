@@ -8,17 +8,17 @@
 	import com.niit.DAO.ProductDAO;
 	import com.niit.model.Product;
 
-	@Repository(value="product")
+	@Repository(value="productDAO")
 
 	public class ProductImpl  implements ProductDAO 
 	{
 			@Autowired
 			SessionFactory sessionFactory;
 
-			public void addProduct(Product pa) {
+			public void addProduct(Product product) {
 
 				Session session=sessionFactory.openSession();
-		session.beginTransaction(); session.save(pa);
+		session.beginTransaction(); session.save(product);
 		session.getTransaction().commit();
 		session.close();
 			
@@ -26,26 +26,42 @@
 			
 		
 
-			public void deleteProduct(Product pd) {
+			public void deleteProduct(Product product) {
 
 				Session session=sessionFactory.openSession();
-		session.beginTransaction(); session.save(pd);
+		session.beginTransaction(); session.save(product);
 		session.getTransaction().commit();
 		session.close();
 			
 			}
 
-			public void updateProduct(Product pu) {
+			public void updateProduct(Product product) {
 
 				Session session=sessionFactory.openSession();
-		session.beginTransaction(); session.save(pu);
+		session.beginTransaction(); session.save(product);
 		session.getTransaction().commit();
 		session.close();
 			
 			}
 
-			public void getProduct(Product pg) {
+			public void getProduct(Product product) {
 			
+				
+			}
+
+
+
+			@Override
+			public void updateProduct(int ProductID) {
+				// TODO Auto-generated method stub
+				
+			}
+
+
+
+			@Override
+			public void getProduct(int ProductID) {
+				// TODO Auto-generated method stub
 				
 			}
 	

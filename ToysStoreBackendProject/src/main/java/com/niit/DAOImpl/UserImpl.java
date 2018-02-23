@@ -6,14 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.DAO.UserDAO;
-import com.niit.model.Product;
 import com.niit.model.User;
 
 
 	
 
 
-	@Repository(value="user")
+	@Repository(value="userDAO")
 
 	public  class UserImpl  implements UserDAO 
 	
@@ -34,27 +33,47 @@ import com.niit.model.User;
 
 				Session session=sessionFactory.openSession();
 		 session.beginTransaction(); 
-		User u=session.get(User.class, uid);
+		 User user=getUser(uid);
 		
-		session.delete(u);
+		session.delete(user);
 		session.getTransaction().commit();
 		session.close();
 			
 			}
 
-			public void updateUser(User uid) {
+			
+			public void updateUser(User user) {
 
 				Session session=sessionFactory.openSession();
-		session.beginTransaction(); session.update(uid);
+		session.beginTransaction(); 
+		
+
+		
+				session.update(user);
 		session.getTransaction().commit();
 		session.close();
-			
+		
 			}
 
-			public void getUser(User uid) {
-			
+		
+
+			@Override
+			public User getUser(int UserID) {
+				// TODO Auto-generated method stub
+				Session session=sessionFactory.openSession();
+				session.beginTransaction(); 
 				
+
+				
+						User u=session.get(User.class,UserID);
+				session.getTransaction().commit();
+				session.close();
+				return u;
 			}
+
+			
+	}
+	
 	
 	
 
@@ -62,4 +81,3 @@ import com.niit.model.User;
 			
 			
 
-}

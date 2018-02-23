@@ -6,10 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.niit.DAO.SupplierDAO;
-import com.niit.model.Product;
 import com.niit.model.Supplier;
 
-@Repository(value="supplier")
+@Repository(value="supplierDAO")
 
 public class SupplierImpl implements SupplierDAO 
 {
@@ -25,17 +24,21 @@ public class SupplierImpl implements SupplierDAO
 		session.close();
 	}
 
-	public void deleteSupplier(Supplier sd) {
+	
+	@Override
+	public void deleteSupplier(int SupplierID) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void updateSupplier(Supplier su) {
+	@Override
+	public void updateSupplier(int SupplierID) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	public void getSupplier(Supplier su) {
+	@Override
+	public void getSupplier(int SupplierID) {
 		// TODO Auto-generated method stub
 		
 	}

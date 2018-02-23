@@ -4,44 +4,42 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-
 import com.niit.DAO.CategoryDAO;
 import com.niit.model.Category;
 
-@Repository(value="category")
+@Repository(value="categoryDAO")
 public class CategoryImpl implements CategoryDAO {
 	@Autowired
 	SessionFactory sessionFactory;
 
-	public void addCategory(Category ca) {
+	public void addCategory(Category category) {
 
 		Session session=sessionFactory.openSession();
-session.beginTransaction(); session.save(ca);
+session.beginTransaction(); session.save(category);
 session.getTransaction().commit();
 session.close();
 	
 	}
-	public void deleteCategory(Category cd) {
+	public void deleteCategory(Category category) {
 
 		Session session=sessionFactory.openSession();
-session.beginTransaction(); session.save(cd);
+session.beginTransaction(); session.delete(category);
 session.getTransaction().commit();
 session.close();
 	
 	}
-	public void updateCategory(Category cu) {
+	public void updateCategory(Category category) {
 
 		Session session=sessionFactory.openSession();
-session.beginTransaction(); session.save(cu);
+session.beginTransaction(); session.update(category);
 session.getTransaction().commit();
 session.close();
 	
 	}
-	public void getCategory(Category cg) {
+	public void getCategory(int categoryId) {
 
 		Session session=sessionFactory.openSession();
-session.beginTransaction(); session.save(cg);
+session.beginTransaction(); session.get(Category.class, categoryId);
 session.getTransaction().commit();
 session.close();
 	

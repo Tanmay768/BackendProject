@@ -9,15 +9,25 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
 
 import com.niit.DAO.CategoryDAO;
+import com.niit.DAO.ProductDAO;
+import com.niit.DAO.SupplierDAO;
 import com.niit.DAOImpl.CategoryImpl;
+import com.niit.DAOImpl.ProductImpl;
+import com.niit.DAOImpl.SupplierImpl;
 import com.niit.model.Category;
 import com.niit.model.Product;
 import com.niit.model.Supplier;
 import com.niit.model.User;
+
+
+
+
+
+
 @Configuration
 @ComponentScan(basePackages={"com.niit"})
 
@@ -61,6 +71,21 @@ public class DBConfig {
 	{
 		System.out.println("----DAO Implementation---");
 		return new CategoryImpl();
+	}
+	
+	@Bean(name="productDAO")
+	public ProductDAO getProductDAO()
+	{
+		System.out.println("----DAO Implementation---");
+		return new ProductImpl();
+	}
+	
+	
+	@Bean(name="supplierDAO")
+	public SupplierDAO getSupplierDAO()
+	{
+		System.out.println("----DAO Implementation---");
+		return new SupplierImpl();
 	}
 	
 	@Bean(name="txManager")

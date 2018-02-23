@@ -16,10 +16,29 @@
 			@Id
 			@GeneratedValue
 			private int UserID;
-			private String  UserName;			
+			private String  UserName;
+			private String EmailID;
 			private String  Password;
+			private String  gender;
+			
+			
+			
+			public String getEmailID() {
+				return EmailID;
+			}
+			public void setEmailID(String emailID) {
+				EmailID = emailID;
+			}
+			public String getGender() {
+				return gender;
+			}
+			public void setGender(String gender) {
+				this.gender = gender;
+			}
 			private int  MobileNO;
 			private String  UserAddress;
+			
+			
 			public int getUserID() {
 				return UserID;
 			}
